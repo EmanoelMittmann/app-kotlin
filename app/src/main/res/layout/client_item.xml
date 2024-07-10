@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <data>
+        <variable
+            name="client"
+            type="com.example.myapplication.data.domain.Client" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/myCard"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        app:cardElevation="90dp"
+        app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="@color/cardview_light_background">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+           >
+
+            <ImageView
+                android:id="@+id/imgProduct"
+                android:layout_width="140dp"
+                android:layout_height="200dp"
+                android:scaleType="centerCrop"
+                app:carregaImg="@{client.photo}"
+                tools:src="@mipmap/ic_launcher"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/tvClientName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="50dp"
+                android:text="@{client.name}"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imgProduct"
+                tools:ignore="MissingConstraints,SmallSp"
+                tools:text="Nome do cliente" />
+
+            <TextView
+                android:id="@+id/tvClientEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{client.email}"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                app:layout_constraintStart_toEndOf="@+id/imgProduct"
+                app:layout_constraintStart_toStartOf="@+id/tvClientName"
+                app:layout_constraintTop_toBottomOf="@id/tvClientName"
+                tools:ignore="MissingConstraints"
+                tools:text="Email do cliente" />
+
+            <TextView
+                android:id="@+id/tvClientCpf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{client.cpf}"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                app:layout_constraintStart_toEndOf="@+id/imgProduct"
+                app:layout_constraintStart_toStartOf="@+id/tvClientEmail"
+                app:layout_constraintTop_toBottomOf="@id/tvClientEmail"
+                tools:ignore="MissingConstraints"
+                tools:text="CPF do cliente" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
